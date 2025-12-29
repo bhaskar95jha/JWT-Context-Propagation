@@ -4,3 +4,16 @@ server:
 spring:
   application:
     name: JWT-Context-Propagation
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Keycloak issuer URI - validates the 'iss' claim in JWT
+          issuer-uri: http://localhost:8080/realms/terafina
+          # URL to fetch Keycloak's public keys for JWT signature verification
+          jwk-set-uri: http://localhost:8080/realms/terafina/protocol/openid-connect/certs
+
+logging:
+  level:
+    org.springframework.security: DEBUG
